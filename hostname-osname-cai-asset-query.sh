@@ -7,7 +7,7 @@
 gcloud services enable cloudasset.googleapis.com
 
 #Grab current Org ID
-ORG_ID=$(gcloud organizations list --format=[no-heading] | awk '{print $2}')
+ORG_ID=$(gcloud organizations list --format=[no-heading] | grep ^${org_name} | awk '{print $2}')
 
 #Run Query (https://cloud.google.com/asset-inventory/docs/query-assets)
 gcloud asset query \
