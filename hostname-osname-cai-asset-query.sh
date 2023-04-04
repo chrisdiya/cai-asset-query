@@ -6,13 +6,12 @@
 #Enables Cloud Asset Inventory API on the project you're using to query the constraint
 gcloud services enable cloudasset.googleapis.com
 
-#Ask for details
-echo Google Cloud Org ID?
-read ORG_ID
+#Grab current Org ID
+ORG_ID=$(gcloud organizations list --format=[no-heading] | awk '{print $2}')
 
 #Run Query (https://cloud.google.com/asset-inventory/docs/query-assets)
 gcloud asset query \
---organization="$ORG_ID" \
+--organization=$ORG_ID \
 --statement="
 SELECT
   osInventory.osInfo.hostname,
