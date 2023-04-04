@@ -3,7 +3,7 @@
 #Make sure you "gcloud auth login" prior to running this script
 #This script requires an active SCC Premium subscription
 
-#Enables Cloud Asset Inventory API on the project you're using to query the constraint
+#Enables Cloud Asset Inventory API on the project you're using
 gcloud services enable cloudasset.googleapis.com
 
 #Grab current Org ID
